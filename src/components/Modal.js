@@ -1,22 +1,22 @@
 import React, { Component } from 'react'
-import { Button, Header, Icon, Image, Modal } from 'semantic-ui-react'
+import { Button, Modal, Icon } from 'semantic-ui-react'
+import PropTypes from 'prop-types'
 
 class InviteModal extends Component {
   render () {
     return (
-      <Modal trigger={<Button>+</Button>}>
+      <Modal dimmer='blurring' trigger={<Button icon labelPosition='left' inverted><Icon name='add user' />Invite</Button>}>
         <Modal.Header>Invite New Member</Modal.Header>
         <Modal.Content scrolling>
-              Here will be a form
+          {this.props.children}
         </Modal.Content>
-        <Modal.Actions>
-          <Button primary>
-          Invite <Icon name='chevron right' />
-          </Button>
-        </Modal.Actions>
       </Modal>
     )
   }
+}
+
+InviteModal.propTypes = {
+  children: PropTypes.element
 }
 
 export default InviteModal
